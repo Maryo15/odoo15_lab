@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<odoo>
+  <record id="id_hematologico" model="lab.test">
+    <field name="lab_test">Hematologico data</field>
+    <field name="lab_test_code">T0001</field>
+    <field name="test_cost">150.00</field>
+    <field name="test_lines" eval="[(5, 0), (4, [ref='medical_lab_management.line_hematologico_hemograma_id']))]"/>
+  </record>
+  <record id="id_inmunologia" model="lab.test">
+    <field name="lab_test">Inmunologia data</field>
+    <field name="lab_test_code">T0002</field>
+    <field name="test_cost">270.00</field>
+  </record>
+  <record id="id_bioquimica" model="lab.test">
+    <field name="lab_test">Bioquimica data</field>
+    <field name="lab_test_code">T0003</field>
+    <field name="test_cost">100.00</field>
+  </record>
+  <record id="id_microbiologia" model="lab.test">
+    <field name="lab_test">Microbiologia data</field>
+    <field name="lab_test_code">T0004</field>
+    <field name="test_cost">70.00</field>
+  </record>
+  <record id="id_hormonas" model="lab.test">
+    <field name="lab_test">Hormonas data</field>
+    <field name="lab_test_code">T0005</field>
+    <field name="test_cost">70.00</field>
+  </record>
+  <record id="id_marcador_tumoral" model="lab.test">
+    <field name="lab_test">Marcador Tumoral data</field>
+    <field name="lab_test_code">T0006</field>
+    <field name="test_cost">200.00</field>
+  </record>
+  <record id="id_perfiles_paquetes" model="lab.test">
+    <field name="lab_test">Perfiles/Paquetes data</field>
+    <field name="lab_test_code">T0007</field>
+    <field name="test_cost">190.00</field>
+  </record>
+  <record id="id_hisopados" model="lab.test">
+    <field name="lab_test">Hisopados data</field>
+    <field name="lab_test_code">T0008</field>
+    <field name="test_cost">130.00</field>
+  </record>
+  <record id="line_hematologico_hemograma_id" model="lab.test.content_type">
+    <field name="content_type_name">Hemograma</field>
+    <field name="content_type_code">H0101</field>
+    <field name="parent_test" ref="medical_lab_management.id_hematologico"/>
+  </record>
+  <record id="line_hematologico_hemoglobina_id" model="lab.test.content_type">
+    <field name="content_type_name">Hemoglobina</field>
+    <field name="content_type_code">H0102</field>
+    <field name="parent_test" ref="medical_lab_management.id_hematologico"/>
+  </record>
+  <record id="line_hematologico_hematocrito_id" model="lab.test.content_type">
+    <field name="content_type_name">Hematocrito</field>
+    <field name="content_type_code">H0103</field>
+    <field name="parent_test" ref="medical_lab_management.id_hematologico"/>
+  </record>
+  <record id="line_hematologico_globular_id" model="lab.test.content_type">
+    <field name="content_type_name">Velocidad de Sedimentación Globular</field>
+    <field name="content_type_code">H0104</field>
+    <field name="parent_test" ref="medical_lab_management.id_hematologico"/>
+  </record>
+  <record id="line_hematologico_plaquetas_id" model="lab.test.content_type">
+    <field name="content_type_name">Recuento de plaquetas</field>
+    <field name="content_type_code">H0105</field>
+    <field name="parent_test" ref="medical_lab_management.id_hematologico"/>
+  </record>
+  <record id="line_hematologico_reticulosis_id" model="lab.test.content_type">
+    <field name="content_type_name">Reticulosis</field>
+    <field name="content_type_code">H0106</field>
+    <field name="parent_test" ref="medical_lab_management.id_hematologico"/>
+  </record>
+  <record id="line_hematologico_corpusculores_id" model="lab.test.content_type">
+    <field name="content_type_name">Constatntes corpusculores</field>
+    <field name="content_type_code">H0107</field>
+    <field name="parent_test" ref="medical_lab_management.id_hematologico"/>
+  </record>
+  <record id="line_hematologico_coagulacion_id" model="lab.test.content_type">
+    <field name="content_type_name">Tiempo de coagulacion y sangria</field>
+    <field name="content_type_code">H0108</field>
+    <field name="parent_test" ref="medical_lab_management.id_hematologico"/>
+  </record>
+  <record id="line_inmunologia_sanguineo_id" model="lab.test.content_type">
+    <field name="content_type_name">Grupo sanguíneo Factor Rh</field>
+    <field name="content_type_code">H0201</field>
+    <field name="parent_test" ref="medical_lab_management.id_inmunologia"/>
+  </record>
+  <record id="line_inmunologia_proteinas_id" model="lab.test.content_type">
+    <field name="content_type_name">Proteinas C reactivos</field>
+    <field name="content_type_code">H0202</field>
+    <field name="parent_test" ref="medical_lab_management.id_inmunologia"/>
+  </record>
+  <record id="line_inmunologia_reumatoide_id" model="lab.test.content_type">
+    <field name="content_type_name">Factor reumatoide</field>
+    <field name="content_type_code">H0203</field>
+    <field name="parent_test" ref="medical_lab_management.id_inmunologia"/>
+  </record>
+  <record id="line_inmunologia_antiestreptolisina_id" model="lab.test.content_type">
+    <field name="content_type_name">Antiestreptolisina 0</field>
+    <field name="content_type_code">H0204</field>
+    <field name="parent_test" ref="medical_lab_management.id_inmunologia"/>
+  </record>
+  <record id="line_inmunologia_serologia_id" model="lab.test.content_type">
+    <field name="content_type_name">Serologia RPR - Sifilis</field>
+    <field name="content_type_code">H0205</field>
+    <field name="parent_test" ref="medical_lab_management.id_inmunologia"/>
+  </record>
+  <record id="line_inmunologia_inmuno_id" model="lab.test.content_type">
+    <field name="content_type_name">virus de inmunodeficiencia humana</field>
+    <field name="content_type_code">H0206</field>
+    <field name="parent_test" ref="medical_lab_management.id_inmunologia"/>
+  </record>
+  <record id="line_inmunologia_b_id" model="lab.test.content_type">
+    <field name="content_type_name">Hepatitis B</field>
+    <field name="content_type_code">H0207</field>
+    <field name="parent_test" ref="medical_lab_management.id_inmunologia"/>
+  </record>
+  <record id="line_inmunologia_c_id" model="lab.test.content_type">
+    <field name="content_type_name">Hepatitis C</field>
+    <field name="content_type_code">H0208</field>
+    <field name="parent_test" ref="medical_lab_management.id_inmunologia"/>
+  </record>
+  <record id="line_inmunologia_dual_id" model="lab.test.content_type">
+    <field name="content_type_name">Dual</field>
+    <field name="content_type_code">H0209</field>
+    <field name="parent_test" ref="medical_lab_management.id_inmunologia"/>
+  </record>
+  <record id="line_bioquimica_glucosa_id" model="lab.test.content_type">
+    <field name="content_type_name">Glucosa</field>
+    <field name="content_type_code">H0301</field>
+    <field name="parent_test" ref="medical_lab_management.id_bioquimica"/>
+  </record>
+  <record id="line_bioquimica_colesterol_id" model="lab.test.content_type">
+    <field name="content_type_name">Colesterol</field>
+    <field name="content_type_code">H0302</field>
+    <field name="parent_test" ref="medical_lab_management.id_bioquimica"/>
+  </record>
+  <record id="line_bioquimica_trigliceridos_id" model="lab.test.content_type">
+    <field name="content_type_name">Trigliceridos</field>
+    <field name="content_type_code">H0303</field>
+    <field name="parent_test" ref="medical_lab_management.id_bioquimica"/>
+  </record>
+  <record id="line_bioquimica_urea_id" model="lab.test.content_type">
+    <field name="content_type_name">Urea</field>
+    <field name="content_type_code">H0304</field>
+    <field name="parent_test" ref="medical_lab_management.id_bioquimica"/>
+  </record>
+  <record id="line_bioquimica_creatinina_id" model="lab.test.content_type">
+    <field name="content_type_name">Creatinina</field>
+    <field name="content_type_code">H0305</field>
+    <field name="parent_test" ref="medical_lab_management.id_bioquimica"/>
+  </record>
+  <record id="line_bioquimica_bilirrubina_total_id" model="lab.test.content_type">
+    <field name="content_type_name">Bilirrubina total</field>
+    <field name="content_type_code">H0306</field>
+    <field name="parent_test" ref="medical_lab_management.id_bioquimica"/>
+  </record>
+  <record id="line_bioquimica_bilirrubina_directa_id" model="lab.test.content_type">
+    <field name="content_type_name">Bilirrubina directa</field>
+    <field name="content_type_code">H0307</field>
+    <field name="parent_test" ref="medical_lab_management.id_bioquimica"/>
+  </record>
+  <record id="line_bioquimica_transaminasas_id" model="lab.test.content_type">
+    <field name="content_type_name">Transaminasas T60</field>
+    <field name="content_type_code">H0308</field>
+    <field name="parent_test" ref="medical_lab_management.id_bioquimica"/>
+  </record>
+  <record id="line_bioquimica_transaminasasp_id" model="lab.test.content_type">
+    <field name="content_type_name">transaminasas T6p</field>
+    <field name="content_type_code">H0309</field>
+    <field name="parent_test" ref="medical_lab_management.id_bioquimica"/>
+  </record>
+  <record id="line_bioquimica_totales_id" model="lab.test.content_type">
+    <field name="content_type_name">Proteinas totales</field>
+    <field name="content_type_code">H0310</field>
+    <field name="parent_test" ref="medical_lab_management.id_bioquimica"/>
+  </record>
+  <record id="line_bioquimica_albumina_id" model="lab.test.content_type">
+    <field name="content_type_name">Albumina</field>
+    <field name="content_type_code">H0311</field>
+    <field name="parent_test" ref="medical_lab_management.id_bioquimica"/>
+  </record>
+  <record id="line_bioquimica_globulina_id" model="lab.test.content_type">
+    <field name="content_type_name">Globulina</field>
+    <field name="content_type_code">H0311</field>
+    <field name="parent_test" ref="medical_lab_management.id_bioquimica"/>
+  </record>
+  <record id="line_bioquimica_fosfatasa_id" model="lab.test.content_type">
+    <field name="content_type_name">Fosfatasa alcalina</field>
+    <field name="content_type_code">H0312</field>
+    <field name="parent_test" ref="medical_lab_management.id_bioquimica"/>
+  </record>
+  <record id="line_bioquimica_protenimia_id" model="lab.test.content_type">
+    <field name="content_type_name">Protenimia 24h</field>
+    <field name="content_type_code">H0313</field>
+    <field name="parent_test" ref="medical_lab_management.id_bioquimica"/>
+  </record>
+  <record id="line_bioquimica_acido_id" model="lab.test.content_type">
+    <field name="content_type_name">Acido Urico</field>
+    <field name="content_type_code">H0314</field>
+    <field name="parent_test" ref="medical_lab_management.id_bioquimica"/>
+  </record>
+  <record id="line_microbiologia_orina_id" model="lab.test.content_type">
+    <field name="content_type_name">Examen de Orina</field>
+    <field name="content_type_code">H0401</field>
+    <field name="parent_test" ref="medical_lab_management.id_microbiologia"/>
+  </record>
+  <record id="line_microbiologia_heces_id" model="lab.test.content_type">
+    <field name="content_type_name">Examen de Heces</field>
+    <field name="content_type_code">H0402</field>
+    <field name="parent_test" ref="medical_lab_management.id_microbiologia"/>
+  </record>
+  <record id="line_microbiologia_heces_id" model="lab.test.content_type">
+    <field name="content_type_name">Examen de Heces</field>
+    <field name="content_type_code">H0403</field>
+    <field name="parent_test" ref="medical_lab_management.id_microbiologia"/>
+  </record>
+  <record id="line_microbiologia_heces_seriado_id" model="lab.test.content_type">
+    <field name="content_type_name">Examen heces seriado</field>
+    <field name="content_type_code">H0404</field>
+    <field name="parent_test" ref="medical_lab_management.id_microbiologia"/>
+  </record>
+  <record id="line_microbiologia_malaria_id" model="lab.test.content_type">
+    <field name="content_type_name">Malaria</field>
+    <field name="content_type_code">H0405</field>
+    <field name="parent_test" ref="medical_lab_management.id_microbiologia"/>
+  </record>
+  <record id="line_microbiologia_hongos_id" model="lab.test.content_type">
+    <field name="content_type_name">KOH-Hongos</field>
+    <field name="content_type_code">H0406</field>
+    <field name="parent_test" ref="medical_lab_management.id_microbiologia"/>
+  </record>
+  <record id="line_microbiologia_baciloscopia_id" model="lab.test.content_type">
+    <field name="content_type_name">Baciloscopia</field>
+    <field name="content_type_code">H0407</field>
+    <field name="parent_test" ref="medical_lab_management.id_microbiologia"/>
+  </record>
+  <record id="line_microbiologia_graham_id" model="lab.test.content_type">
+    <field name="content_type_name">Test de Graham</field>
+    <field name="content_type_code">H0408</field>
+    <field name="parent_test" ref="medical_lab_management.id_microbiologia"/>
+  </record>
+  <record id="line_microbiologia_gram_id" model="lab.test.content_type">
+    <field name="content_type_name">Coloracion de gram</field>
+    <field name="content_type_code">H0409</field>
+    <field name="parent_test" ref="medical_lab_management.id_microbiologia"/>
+  </record>
+  <record id="line_hormonas_beta_id" model="lab.test.content_type">
+    <field name="content_type_name">HC6-Beta</field>
+    <field name="content_type_code">H0501</field>
+    <field name="parent_test" ref="medical_lab_management.id_hormonas"/>
+  </record>
+  <record id="line_hormonas_psa_id" model="lab.test.content_type">
+    <field name="content_type_name">PSA Total</field>
+    <field name="content_type_code">H0502</field>
+    <field name="parent_test" ref="medical_lab_management.id_hormonas"/>
+  </record>
+  <record id="line_hormonas_tsh_id" model="lab.test.content_type">
+    <field name="content_type_name">TSH</field>
+    <field name="content_type_code">H0503</field>
+    <field name="parent_test" ref="medical_lab_management.id_hormonas"/>
+  </record>
+  <record id="line_hormonas_t4_id" model="lab.test.content_type">
+    <field name="content_type_name">T4 total</field>
+    <field name="content_type_code">H0504</field>
+    <field name="parent_test" ref="medical_lab_management.id_hormonas"/>
+  </record>
+  <record id="line_hormonas_total_id" model="lab.test.content_type">
+    <field name="content_type_name">T3 total</field>
+    <field name="content_type_code">H0505</field>
+    <field name="parent_test" ref="medical_lab_management.id_hormonas"/>
+  </record>
+  <record id="line_hormonas_libre_id" model="lab.test.content_type">
+    <field name="content_type_name">T4 libre</field>
+    <field name="content_type_code">H0506</field>
+    <field name="parent_test" ref="medical_lab_management.id_hormonas"/>
+  </record>
+  <record id="line_hormonas_t3_id" model="lab.test.content_type">
+    <field name="content_type_name">T3 libre</field>
+    <field name="content_type_code">H0507</field>
+    <field name="parent_test" ref="medical_lab_management.id_hormonas"/>
+  </record>
+  <record id="line_hormonas_psa_libre_id" model="lab.test.content_type">
+    <field name="content_type_name">PSA Libre</field>
+    <field name="content_type_code">H0508</field>
+    <field name="parent_test" ref="medical_lab_management.id_hormonas"/>
+  </record>
+  <record id="line_marcador_tumoral_ca_id" model="lab.test.content_type">
+    <field name="content_type_name">Ca 125</field>
+    <field name="content_type_code">H0601</field>
+    <field name="parent_test" ref="medical_lab_management.id_marcador_tumoral"/>
+  </record>
+  <record id="line_marcador_tumoral_psa_tot_id" model="lab.test.content_type">
+    <field name="content_type_name">PSA total</field>
+    <field name="content_type_code">H0602</field>
+    <field name="parent_test" ref="medical_lab_management.id_marcador_tumoral"/>
+  </record>
+  <record id="line_marcador_tumoral_psa_lil_id" model="lab.test.content_type">
+    <field name="content_type_name">PSA libre</field>
+    <field name="content_type_code">H0603</field>
+    <field name="parent_test" ref="medical_lab_management.id_marcador_tumoral"/>
+  </record>
+  <record id="line_perfiles_paquetes_gestante_id" model="lab.test.content_type">
+    <field name="content_type_name">Paquete gestante</field>
+    <field name="content_type_code">H0701</field>
+    <field name="parent_test" ref="medical_lab_management.id_perfiles_paquetes"/>
+  </record>
+  <record id="line_perfiles_paquetes_lipidico_id" model="lab.test.content_type">
+    <field name="content_type_name">Perfil lipídico</field>
+    <field name="content_type_code">H0702</field>
+    <field name="parent_test" ref="medical_lab_management.id_perfiles_paquetes"/>
+  </record>
+  <record id="line_perfiles_paquetes_hepatico_id" model="lab.test.content_type">
+    <field name="content_type_name">Perfil hepático</field>
+    <field name="content_type_code">H0703</field>
+    <field name="parent_test" ref="medical_lab_management.id_perfiles_paquetes"/>
+  </record>
+  <record id="line_perfiles_paquetes_renal_id" model="lab.test.content_type">
+    <field name="content_type_name">Perfil renal</field>
+    <field name="content_type_code">H0704</field>
+    <field name="parent_test" ref="medical_lab_management.id_perfiles_paquetes"/>
+  </record>
+  <record id="line_perfiles_paquetes_tolerancia_glucosa_id" model="lab.test.content_type">
+    <field name="content_type_name">Tolerancia a la glucosa</field>
+    <field name="content_type_code">H0705</field>
+    <field name="parent_test" ref="medical_lab_management.id_perfiles_paquetes"/>
+  </record>
+  <record id="line_perfiles_paquetes_tiroideo_id" model="lab.test.content_type">
+    <field name="content_type_name">Perfil tiroideo</field>
+    <field name="content_type_code">H0706</field>
+    <field name="parent_test" ref="medical_lab_management.id_perfiles_paquetes"/>
+  </record>
+  <record id="line_perfiles_paquetes_hormonal_femenino_id" model="lab.test.content_type">
+    <field name="content_type_name">Perfil hormonal femenino</field>
+    <field name="content_type_code">H0707</field>
+    <field name="parent_test" ref="medical_lab_management.id_perfiles_paquetes"/>
+  </record>
+  <record id="line_hisopados_covid_id" model="lab.test.content_type">
+    <field name="content_type_name">Hisopados Covid</field>
+    <field name="content_type_code">H0801</field>
+    <field name="parent_test" ref="medical_lab_management.id_hisopados"/>
+  </record>
+  <record id="line_hisopados_molecular_id" model="lab.test.content_type">
+    <field name="content_type_name">Hisopado molecular covid</field>
+    <field name="content_type_code">H0802</field>
+    <field name="parent_test" ref="medical_lab_management.id_hisopados"/>
+  </record>
+  <record id="line_hisopados_faringeo_id" model="lab.test.content_type">
+    <field name="content_type_name">Hisopado faríngeo</field>
+    <field name="content_type_code">H0803</field>
+    <field name="parent_test" ref="medical_lab_management.id_hisopados"/>
+  </record>
+
+</odoo>
+

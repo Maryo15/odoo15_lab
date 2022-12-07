@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--record id="view_result_format_tree" model="ir.ui.view">
+            <field name="name">result.format.tree</field>
+            <field name="model">result.format</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                  <tree string="result format">
+                    <field name="result_format" /> 
+                    <field name="result_format_code" />
+                  </tree>
+            </field>
+        </record>
+    
+        <record id="view_result_format_form" model="ir.ui.view">
+                <field name="name">result.format_type.form</field>
+                <field name="model">result.format</field>
+                <field name="priority" eval="8" />
+                <field name="arch" type="xml">
+                    <form string="Result Format">
+                        <sheet>
+                            <group>
+                                <group col="4" colspan="4">
+                                <field name="result_format_name" />
+                                <field name="result_format_code" />
+                                </group>
+                            </group>
+                    </sheet>
+                    </form>
+                </field>
+            </record>
+            <record id="view_result_format_search" model="ir.ui.view">
+                <field name="name">result.format.search</field>
+                <field name="model">result.format</field>
+                <field name="priority" eval="8" />
+                <field name="arch" type="xml">
+                    <search string="Result Format">
+                    <field name="result_format" />
+                <field name="result_format_code" />
+                        <newline />
+                        <group expand="0" string="Group By...">
+                            <filter name="result_format" string="Result Format"
+                            domain="[]" context="{'group_by':'result_format_name'}" />
+                <filter name="result_format_code" string="Result Format Code"
+                            domain="[]" context="{'group_by':'result_format_code'}" />
+                        </group>
+                    </search>
+                </field>
+            </record-->
+        <!--record model="ir.actions.act_window" id="act_open_result_format_view">
+            <field name="name">Result Format</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">result.format</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create Result Format.
+                </p>
+            </field>
+        </record-->
+        <menuitem id="configuration_id"
+                    name="Configuracion"
+                    parent="menu_root_lab"
+                    sequence="100"/>
+        <menuitem name="Result asdasdFormat"
+            id="result_format_conf"
+            parent="configuration_id"
+            sequence="20" />
+        <menuitem name="Result asdasdFormat"
+            id="result_format_conf"
+            parent="configuration_id"
+            sequence="20" />
+        <menuitem name="Result asdasdFormat"
+            id="result_format_conf"
+            parent="configuration_id"
+            sequence="20" />
+          
+    </data>
+</odoo>
+
+
+
+
+
+
