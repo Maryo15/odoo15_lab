@@ -35,7 +35,7 @@
                 </p>
             </field>
         </record>
-
-    <menuitem id="menuitem_approvals_template" name="Approvals template" parent="" action="view_action_approvalstemplate"/>
-
+   
+    <menuitem id="menuitem_approvals_template" name="Approvals template" parent="approvals.approvals_menu_config" action="view_action_approvals_template"/>
+    
 </odoo>

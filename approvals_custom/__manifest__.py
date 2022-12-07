@@ -13,6 +13,8 @@
         "security/ir.model.access.csv",
         "data/approvals_custom.xml",
         "views/approvals_template.xml",
+        "views/approvals_custom_wizard.xml",
+        "views/approval_wizard.xml",
     ],
     
     'application': True,

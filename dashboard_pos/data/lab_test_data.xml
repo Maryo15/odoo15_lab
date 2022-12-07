@@ -1,0 +1,10 @@
+<!--?xml version="1.0" encoding="utf-8"?>  
+<odoo>
+  <record id="id_hematologico" model="lab.test">
+    <field name="lab_test">Hematologico data</field>
+    <field name="lab_test_code">DT001</field>
+    <field name="test_cost">150</field>
+  </record>
+ 
+</odoo-->
+

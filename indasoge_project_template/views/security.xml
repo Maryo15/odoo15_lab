@@ -1,0 +1,43 @@
+<odoo>
+
+    <record id="groups_acces_admin_pmo" model="res.groups">
+        <field name="name">Administrador de PMO</field>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="groups_acces_admin" model="res.groups">
+        <field name="name">Administrador de proyecto</field>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="groups_acces_user" model="res.groups">
+        <field name="name">Usuario de proyectos</field>
+    </record>
+    <record id="indasoge_project_template.model_acces_admin_pmo" model="ir.model.access">
+        <field name="name">Administrador de PMO</field>
+        <field name="model_id" ref="indasoge_project_template.model_project_template"/>
+        <field name="group_id" ref="indasoge_project_template.groups_acces_admin_pmo"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+    <record id="indasoge_project_template.model_acces_admin" model="ir.model.access">
+        <field name="name">Administrador de proyecto</field>
+        <field name="model_id" ref="indasoge_project_template.model_project_template"/>
+        <field name="group_id" ref="groups_acces_admin"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+    
+    <record id="indasoge_project_template.model_acces_user" model="ir.model.access">
+        <field name="name">Usuario de proyectos</field>
+        <field name="model_id" ref="indasoge_project_template.model_project_template"/>
+        <field name="group_id" ref="indasoge_project_template.groups_acces_user"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+</odoo>
