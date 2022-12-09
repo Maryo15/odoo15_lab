@@ -62,11 +62,11 @@ class LabPatient(models.Model):
     dni = fields.Char(string='DNI', size=64)
     historia_clinica = fields.Text(string='Observación')
 
-    tipo_seguro_id = fields.Many2one('tipo.seguro', string='Tipo seguro')
+    tipo_seguro_id = fields.Selection(
+        [('sis', 'SIS'), ('essa', 'EsSalud'),
+         ], 'Tipo seguro', required=True)
     especialidad_id = fields.Many2one('especialidad', string='Especialidad')
     profesional_id = fields.Many2one('profesional', string='Profesional')
-
-
 
     def compute_age(self):
         for data in self:

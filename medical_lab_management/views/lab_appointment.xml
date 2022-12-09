@@ -76,30 +76,28 @@
                         <button name="action_request" states="confirm" string="Request Lab" type="object" class="oe_highlight" />
                         <button name="create_invoice" states="completed" string="Create Invoice" type="object" class="oe_highlight"/>
                         <button name="cancel_appointment" states="draft,confirm" string="Cancelled" type="object"/>
-                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,request_lab,completed,to_invoice,invoiced"
-                               />
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,request_lab,completed,to_invoice,invoiced"/>
                     </header>
                     <sheet>
                         <div class="oe_button_box" name="button_box">
-                            <!--button name="%(act_open_lab_request_view)d"
+                            <button name="%(act_open_lab_request_view)d"
                                 type="action"
                                 class="oe_stat_button"
                                 icon="fa-building-o"
                                 context = "{'search_default_app_id': [active_id]}"
                                 attrs="{'invisible': [('request_count', '=', 0)]}">
                                 <field name="request_count" widget="statinfo" string="Lab Requests"/>
-                            </button-->
+                            </button>
                             <button name="%(lab_invoice_action)d"
-                                type="action"
-                                class="oe_stat_button"
-                                icon="fa-pencil-square-o"
-                                context = "{'search_default_lab_request': [active_id]}"
-                                attrs="{'invisible': [('inv_count', '=', 0)]}">
-                                <field name="inv_count" widget="statinfo" string="Lab Invoice"/>
+                                    type="action"
+                                    class="oe_stat_button"
+                                    icon="fa-pencil-square-o"
+                                    context = "{'search_default_lab_request': [active_id]}"
+                                    attrs="{'invisible': [('inv_count', '=', 0)]}">
+                                    <field name="inv_count" widget="statinfo" string="Lab Invoice"/>
                             </button>
                             <button name="open_lab_request" type="object" class="oe_stat_button" icon="fa-plus-circle">
-                                <!--field name="app_count" widget="statinfo" string="Appointments"/-->
-                            <span>Lab</span> 
+                                <span>Lab</span> 
                             </button>
                         </div>
                         <group>
@@ -221,11 +219,10 @@
                     <xpath expr="//div[@name='button_box']" position="inside">
                         <button name="%(act_open_lab_appointment_view)d"
                                 type="action"
+                                string="Citas"
                                 class="oe_stat_button"
                                 icon="fa-building-o"
                                 context = "{'search_default_patient_id': [active_id], 'default_patient_id':[active_id]}" >
-                                <field name="app_count" widget="statinfo" string="Appointments"/>
-
                             </button>
                     </xpath>
                 </data>

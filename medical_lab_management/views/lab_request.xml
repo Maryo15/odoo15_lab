@@ -45,7 +45,7 @@
                         </group>
                         <notebook colspan="4">
                             <page string="Test lines">
-                                <field name="test_lines_result">
+                                <field name="request_line_result">
                                      <tree string="Test lines" editable="bottom">
                                            <field name="test_content" />
                                            <field name="unit"/>
