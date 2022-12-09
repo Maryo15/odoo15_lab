@@ -4,7 +4,7 @@
     <field name="lab_test">Hematologico data</field>
     <field name="lab_test_code">T0001</field>
     <field name="test_cost">150.00</field>
-    <field name="test_lines" eval="[(5, 0), (4, [ref='medical_lab_management.line_hematologico_hemograma_id']))]"/>
+    <!--field name="test_lines" eval="[(6, 0, [ref='medical_lab_management.line_hematologico_hemograma_id']))]"/-->
   </record>
   <record id="id_inmunologia" model="lab.test">
     <field name="lab_test">Inmunologia data</field>

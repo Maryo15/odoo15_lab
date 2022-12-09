@@ -73,7 +73,7 @@ class LabRequest(models.Model):
         return self.write({'state': 'cancel'})
 
     def set_to_test_completed(self):
-        if not self.test_lines_result:
+        if not self.request_line_result:
             raise ValidationError(_("No Result Lines Entered !"))
         req_obj = self.env['lab.request'].search_count([('app_id', '=', self.app_id.id),
                                                         ('id', '!=', self.id)])

@@ -27,7 +27,7 @@
                                 <th style="border:1px solid black;text-align:center;" width="13%" class="td4">Result</th>
                             </thead>
                             <tbody>
-                                <t t-foreach="o.test_lines_result" t-as="l">
+                                <t t-foreach="o.request_line_result" t-as="l">
                                     <tr style="border:1px solid black">
                                         <td style="border:1px solid black;text-align:center;"><span t-esc="l.test_content.content_type_name" style="font-size:16px;"/></td>
                                         <td style="border:1px solid black;text-align:center;"><span t-esc="l.unit.code" style="font-size:16px;"/></td>

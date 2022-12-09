@@ -55,7 +55,7 @@
                         <button class="btn btn-primary" type="object" name="onchange_form" string="actualizar datos del contacto"/>
                     </header>
                     <sheet>
-                        <div class="oe_button_box" name="button_box">
+                        <div class="oe_button_box" name="button_box">                            
                         </div>
                         <field name="patient_image" widget="image" class="oe_avatar"/>
                         <div name="title_name" class="oe_title">
