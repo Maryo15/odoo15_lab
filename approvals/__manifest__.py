@@ -24,13 +24,13 @@ creates next activities for the related approvers.
 
         'data/approval_category_data.xml',
         'data/mail_activity_data.xml',
+        'data/approval_demo.xml',
 
         'views/approval_category_views.xml',
         'views/approval_category_approver_views.xml',
         'views/approval_product_line_views.xml',
         'views/approval_request_views.xml',
         'views/res_users_views.xml',
-        'data/email_template.xml',
     ],
     'demo':[
         'data/approval_demo.xml',
