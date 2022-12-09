@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+        <record id="approval_category_inherit_form" model="ir.ui.view">
+            <field name="model">approval.category</field>
+            <field name="name">approval.category.custom.inherit.form</field>
+            <field name="inherit_id" ref="approvals.approval_category_view_form"></field>
+            <field name="arch" type="xml">
+
+                <xpath expr="//sheet//notebook" position="before">
+                    <label for="ext_payment_flag" string="Es Pago Externo"/>
+                    <field name="ext_payment_flag"/>
+                </xpath>
+
+                <!-- <xpath expr="//sheet//notebook//page[@name='options']//group[1]//group[@name='option_settings']//field[@name='has_location']" position="after"> -->
+                <xpath expr="//sheet//notebook//page[@name='options']//group[1]//group[@name='option_settings']" position="after">
+                    <group string="Fields" attrs="{'invisible': [('ext_payment_flag', '!=', True)]}">
+                        <field name="has_defined_hours" string="Horas Pactadas" widget="radio" options="{'horizontal': true}"/>
+                        <field name="has_worked_hours" string="Horas Trabajadas" widget="radio" options="{'horizontal': true}"/>
+                        <field name="has_extra_hours" string="Horas Extra" widget="radio" options="{'horizontal': true}"/>
+                        <field name="has_asigned_employees" string="Talento" widget="radio" options="{'horizontal': true}"/>
+                        <field name="has_ext_payment_period" string="Periodo" widget="radio" options="{'horizontal': true}"/>
+                        <field name="has_project" string="Proyecto" widget="radio" options="{'horizontal': true}"/>
+                        <field name="has_notes" string="Notas" widget="radio" options="{'horizontal': true}"/>
+                    </group>
+                </xpath>
+
+                <xpath expr="//sheet//notebook//page[@name='options']//group[1]//group[@name='option_settings']" position="replace">
+                    <group string="Fields" name="option_settings" attrs="{'invisible': [('ext_payment_flag', '=', True)]}">
+                        <field name="active" invisible="1"/>
+                        <field name="requirer_document" string="Document" widget="radio" options="{'horizontal': true}"/>
+                        <field name="has_partner" string="Contact" widget="radio" options="{'horizontal': true}"/>
+                        <field name="has_date" string="Date" widget="radio" options="{'horizontal': true}"/>
+                        <field name="has_period" string="Period" widget="radio" options="{'horizontal': true}"/>
+                        <field name="has_product" string="Product" force_save="1"
+                            widget="radio" options="{'horizontal': true}"/>
+                        <field name="has_quantity" string="Quantity" widget="radio" options="{'horizontal': true}"/>
+                        <field name="has_amount" string="Amount" widget="radio" options="{'horizontal': true}"/>
+                        <field name="has_reference" string="Reference" widget="radio" options="{'horizontal': true}"/>
+                        <field name="has_payment_method" string="Payment" widget="radio" options="{'horizontal': true}"/>
+                        <field name="has_location" string="Location" widget="radio" options="{'horizontal': true}"/>
+                    </group>
+                </xpath>
+
+                <xpath expr="//sheet//notebook//page[@name='options']//group[1]//group[@name='approvers']//field[@name='approver_ids']" position="before">
+                    <!-- <label for="ext_payment_flag" string="Talento"/> -->
+                    <!-- <field name="asigned_employee" attrs="{'invisible': [('ext_payment_flag', '!=', True)]}"/> -->
+                </xpath>
+
+                <!-- <xpath expr="//sheet//notebook//page[@name='options']//group[1]//group[@name='approvers']//field[@name='approver_ids']" position="after">
+                    <field name="current_sequence"/>
+                </xpath> -->
+
+            </field>
+        </record>
+    
+</odoo>

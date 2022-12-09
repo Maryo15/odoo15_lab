@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+        <record id="approval_request_view_form_inherit" model="ir.ui.view">
+            <field name="model">approval.request</field>
+            <field name="name">approval.request.view.inherit.form</field>
+            <field name="inherit_id" ref="approvals.approval_request_view_form"></field>
+            <field name="arch" type="xml">
+
+                <xpath expr="//sheet//group[1]//group[@name='request_main']//field[@name='partner_id']" position="before">
+                    <!-- <field name="asigned_employee" attrs="{'invisible':[('ext_payment_flag','==','no')]}"/> -->
+                    <field name="asigned_employe_ids" attrs="{'invisible':[('ext_payment_flag','==','no')]}" widget="many2many_tags"/>
+                    <field name="payment_month" attrs="{'invisible':[('ext_payment_flag','==','no')]}"/>
+                    <field name="payment_period" attrs="{'invisible':[('ext_payment_flag','==','no')]}"/>
+                    <field name="ext_payment_flag" invisible="1"/>
+                    <field name="has_defined_hours" invisible="1"/>
+                    <field name="has_worked_hours" invisible="1"/>
+                    <field name="has_extra_hours" invisible="1"/>
+                    <field name="defined_hours" attrs="{'invisible':[('has_defined_hours','==','no')], 'required': [('has_defined_hours','==','required')], 'readonly': [('request_status','not in',('new', 'pending'))]}"/>
+                    <field name="worked_hours" attrs="{'invisible':[('has_worked_hours','==','no')], 'required': [('has_worked_hours','==','required')], 'readonly': [('request_status','not in',('new', 'pending'))]}"/>
+                    <field name="extra_hours" attrs="{'invisible':[('has_extra_hours','==','no')], 'required': [('has_extra_hours','==','required')], 'readonly': [('request_status','not in',('new', 'pending'))]}"/>
+                    <field name="project" attrs="{'invisible':[('ext_payment_flag','==','no')]}" />
+                    <field name="notes" attrs="{'invisible':[('ext_payment_flag','==','no')]}" />
+                    <field name="approval_min" attrs="{'invisible':[('ext_payment_flag','==','no')]}"/>
+                    <field name="approval_counter" attrs="{'invisible':[('ext_payment_flag','==','no')]}"/>
+                </xpath>
+
+                <!-- <xpath expr="//sheet//notebook//page[@name='approvers']//field[1]//tree//field[@name='required']" position="after">
+                    <field name="sequence_number"/>
+                </xpath> -->
+
+            </field>
+        </record>
+
+         <record id="approval_request_view_tree_inherit" model="ir.ui.view">
+            <field name="model">approval.request</field>
+            <field name="name">approval.request.view.inherit.tree</field>
+            <field name="inherit_id" ref="approvals.approval_request_view_tree" />
+            <field name="arch" type="xml">
+
+                <xpath expr="//tree[1]//field[@name='activity_ids']" position="after">
+                    <field name="ext_payment_flag" attrs="{'invisible':[('ext_payment_flag','==','no')]}" />
+                    <field name="asigned_employe_ids" attrs="{'invisible':[('ext_payment_flag','==','no')]}" widget="many2many_tags"/>
+                    <field name="payment_period" attrs="{'invisible':[('ext_payment_flag','==','no')]}" />
+                    <field name="defined_hours" attrs="{'invisible':[('ext_payment_flag','==','no')]}" />
+                    <field name="worked_hours" attrs="{'invisible':[('ext_payment_flag','==','no')]}" />
+                    <field name="extra_hours" attrs="{'invisible':[('ext_payment_flag','==','no')]}" />
+                    <field name="required_approvers" attrs="{'invisible':[('ext_payment_flag','==','no')]}" widget="many2many_tags" />
+                    <field name="approval_min" attrs="{'invisible':[('ext_payment_flag','==','no')]}" />
+                    <field name="approval_counter" attrs="{'invisible':[('ext_payment_flag','==','no')]}" />
+                </xpath>
+
+            </field>
+        </record>
+    
+</odoo> 

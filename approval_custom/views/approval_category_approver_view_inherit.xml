@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+        <record id="approval_category_approver_view_form_inherit" model="ir.ui.view">
+            <field name="model">approval.category.approver</field>
+            <field name="name">approval.category.approver.view.inherit.tree</field>
+            <field name="inherit_id" ref="approvals.approval_category_approver_view_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//tree[1]//field[@name='required']" position="after">
+                    <field name="sequence_number" />
+                </xpath>
+
+            </field>
+        </record>
+    
+</odoo> 

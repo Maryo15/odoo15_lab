@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="approvals_wizard_view_form" model="ir.ui.view">
+        <field name="name">approvals.wizard.form</field>
+        <field name="model">approvals.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Wizard">
+                <group class="oe_title">
+                    <field name="template_id" options='{"no_open": True, "no_create": True}' />
+                    <field name="employee_ids" widget="many2many_tags" />
+                </group>
+                <footer>
+                    <button string="Envio masivo de solicitud de facturas" name="send_massive_invoice_request" type="object" class="oe_highlight btn-primary" />
+                    <button string="Envio de solicitud de facturas" name="send_invoice_request" type="object" class="oe_highlight btn-primary" />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="approvals_wizard_action" model="ir.actions.act_window">
+        <field name="name">Approvals Wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">approvals.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="approvals_wizard_view_form" />
+        <field name="target">new</field>
+    </record>
+</odoo>
