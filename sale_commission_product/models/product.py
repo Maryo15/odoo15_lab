@@ -21,21 +21,14 @@ class ProductProductAgent(models.Model):
 
     def get_commission_id_product(self, product, agent):
         commission_id = False
-        _logger.info("INICIO**get_commission_id_product*")
         # commission_id for all agent
         for commission_all_agent in self.search(
                 [('product_id', '=', product), ('agent', '=', False)]):
             commission_id = commission_all_agent.commission.id
-            _logger.info(
-                "{}******commission_id****agent false*****".format(commission_id))
-        # commission_id for agent
         # SI UBICA
         for product_agent_id in self.search(
                 [('product_id', '=', product), ('agent', '=', agent.id)]):
             commission_id = product_agent_id.commission.id
-            _logger.info(
-                "{}******commission_id**** agent true*****".format(commission_id))
-        _logger.info("FIN**get_commission_id_product*")
         return commission_id
 
     product_id = fields.Many2one(

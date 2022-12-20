@@ -10,7 +10,6 @@ _logger = logging.getLogger(__name__)
 class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
-    # CORREGIR ERROR
     @api.constrains('product_id')
     def commission_product_id(self):
         for rec in self:
@@ -22,10 +21,9 @@ class AccountMoveLine(models.Model):
                 if commission_id_product:
                     commission_id = commission_id_product
                 agent_list = []
-                for rec in self:
-                    agent_list.append({'agent_id': agent.id,
-                                       'object_id': rec._origin.id,
-                                       'commission_id': commission_id,
-                                       })
-                self.agent_ids = [(0, 0, x) for x in agent_list]
-                _logger.info('***paso la creacion**')
+                agent_list.append({'agent_id': agent.id,
+                                   # 'object_id': self._origin.id,
+                                   'object_id': rec.id,
+                                   'commission_id': commission_id,
+                                   })
+                rec.agent_ids = [(0, 0, x) for x in agent_list]
