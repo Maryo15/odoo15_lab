@@ -6,12 +6,15 @@
         <field name="arch" type="xml">
             <form string="Wizard">
                 <group class="oe_title">
+                    <h2>
+                        Ingresa la plantilla deseada
+                    </h2>
                     <field name="template_id" options='{"no_open": True, "no_create": True}' />
-                    <field name="employee_ids" widget="many2many_tags" />
+                    <field name="request_ids" widget="many2many_tags" options='{"no_create": True}' />
+                    <field name="employee_ids" widget="many2many_tags" options='{"no_create": True}' />
                 </group>
                 <footer>
-                    <button string="Envio masivo de solicitud de facturas" name="send_massive_invoice_request" type="object" class="oe_highlight btn-primary" />
-                    <button string="Envio de solicitud de facturas" name="send_invoice_request" type="object" class="oe_highlight btn-primary" />
+                    <button string="Confirmar" name="send_invoice_request" type="object" class="oe_highlight btn-primary" />
                     <button string="Cancel" class="btn-secondary" special="cancel" />
                 </footer>
             </form>

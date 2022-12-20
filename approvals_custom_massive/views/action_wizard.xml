@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_view_approvals_wizard" model="ir.actions.act_window">
+        <field name="name">Send Mails</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">approvals.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <!-- TODO: check if we need this -->
+        <field name="binding_model_id" ref="approvals_custom_massive.model_approval_request" />
+        <field name="binding_view_types">list</field>
+    </record>
+</odoo>

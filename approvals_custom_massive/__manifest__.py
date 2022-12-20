@@ -11,10 +11,12 @@
     'depends': ["base", "approvals", "approval_custom", "mass_mailing"],
     'data': [
         "security/ir.model.access.csv",
+        "security/res_groups.xml",
         "data/approvals_custom.xml",
         "views/approvals_template.xml",
         "views/approval_request_view_form.xml",
         "views/approvals_wizard.xml",
+        "views/action_wizard.xml",
     ],
 
     'application': True,

@@ -9,39 +9,38 @@ class ApprovalsWizard(models.TransientModel):
     _description = 'Approvals Wizard'
 
     template_id = fields.Many2one('approvals.template', string='Template')
-    employee_ids = fields.Many2many('hr.employee', string='Partner')
-    request_id = fields.Many2one('approval.request', string='Request')
+    request_ids = fields.Many2many(
+        'approval.request', string='Request', readonly=True)
+    employee_ids = fields.Many2many(
+        'hr.employee', string='Partner', store=True, readonly=False)
 
-    def send_massive_invoice_request(self):
+    @api.onchange('template_id')
+    def _onchange_template_id(self):
         for rec in self:
-            employee_ids = []
-            for e in rec.employee_ids:
-                employee_ids.append(e.work_email)
-            mailing = rec.template_id.mail_template_id.copy()
-            mailing.request_id = rec.request_id.id
-            rec.request_id.type_mail = '0'
-            rec.template_id.mail_template_id.body_arch = rec.template_id.mail_template_id.body_arch.format(
-                proyecto=rec.request_id.project.name if rec.request_id.project else '',
-                defined_hours=rec.request_id.defined_hours if rec.request_id.defined_hours else '',
-                worked_hours=rec.request_id.worked_hours if rec.request_id.worked_hours else '',
-                extra_hours=rec.request_id.extra_hours if rec.request_id.extra_hours else ''
-            )
-            mailing.mailing_domain = "[['email', 'in', {}]]".format(
-                employee_ids)
+            rec.request_ids = self.env['approval.request'].browse(
+                self._context.get('active_ids', []))
+            _logger.info('rec.request_ids*****{}'.format(rec.request_ids))
+            rec.employee_ids = rec.request_ids.mapped(
+                'asigned_employe_ids')
 
     def send_invoice_request(self):
+        approval_request = self.env['approval.request'].browse(
+            self._context.get('active_ids', []))
         for rec in self:
-            for e in rec.employee_ids:
-                body = rec.template_id.mail_template_id.body_arch.format(
-                    proyecto=rec.request_id.project.name if rec.request_id.project else '',
-                    defined_hours=rec.request_id.defined_hours if rec.request_id.defined_hours else '',
-                    worked_hours=rec.request_id.worked_hours if rec.request_id.worked_hours else '',
-                    extra_hours=rec.request_id.extra_hours if rec.request_id.extra_hours else '')
-                mail_values = {
-                    'subject': '{} - {}'.format(rec.request_id.name, rec.template_id.name),
-                    'body_html': body,
-                    'email_to': e.work_email,
-                    'request_id': rec.request_id.id,
-                }
-                mail = self.env['mail.mail'].create(mail_values)
-            rec.request_id.type_mail = '1'
+            for request in approval_request:
+                request_employee_ids = request.asigned_employe_ids
+                for e in request_employee_ids:
+                    if e in rec.employee_ids:
+                        body = rec.template_id.mail_template_id.body_arch.format(
+                            proyecto=request.project if request.project else '',
+                            defined_hours=request.defined_hours if request.defined_hours else '',
+                            worked_hours=request.worked_hours if request.worked_hours else '',
+                            extra_hours=request.extra_hours if request.extra_hours else '')
+                        _logger.info('e*****{}'.format(e))
+                        mail_values = {
+                            'subject': '{} - {}'.format(request.name, rec.template_id.name),
+                            'body_html': body,
+                            'email_to': e.work_email if e.work_email else '',
+                            'request_id': request.id,
+                        }
+                        mail = self.env['mail.mail'].create(mail_values)
